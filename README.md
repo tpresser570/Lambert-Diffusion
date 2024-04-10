@@ -80,17 +80,9 @@ python main.py --sample --config unconditional_lambert.yml -i lambert_samples
 
 Samples will be saved in `<exp>/image_samples/lambert_samples`.
 
-We can interpolate between different samples (see more details in the paper). Just set `interpolation` to `true` and an appropriate `n_interpolations` under the group of `sampling` in `unconditonal_lambert.yml`. We can also perform other tasks such as inpainting. Usages should be quite obvious if you read the code and configuration files carefully.
-
 ### Evaluating Trajectories 
 
-We can specify `begin_ckpt` and `end_ckpt` under the `fast_fid` group in the configuration file. For example, by running the following command, we can generate a small number of samples per checkpoint within the range `begin_ckpt`-`end_ckpt` for a quick (and rough) FID evaluation.
-
-```shell
-python main.py --fast_fid --config bedroom.yml -i bedroom
-```
-
-You can find samples in `<exp>/fid_samples/bedroom`.
+We can evaluate trajectories using both methods proposed in the paper by utlizing the `Trajectory_Eval_Scripts/` that are separated into Python and Julia. Note that after sampling the model outputs will be saved as `.pth` files. Use the scripts in the `Conversions/` folder to convert these files to numpy arrays that can be used for processing and evaluation. To convert samples you will also need the `ranges.csv` file from the dataset to convert from pixels to states.
 
 ## References
 

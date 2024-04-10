@@ -2,9 +2,6 @@
 import numpy as np
 import pykep as pk
 
-import numpy as np
-import pykep as pk
-
 def compute_velocity_differences(trajectories):
     # Constants
     mu_sun = pk.MU_SUN  # Gravitational parameter of the Earth

@@ -163,9 +163,9 @@ end
 
 
 
-
-
-
+"""
+Condenses a trajectory from N timesteps to 16 using evenly spaced points.
+"""
 function condense_trajectory(trajectory)
     # Input trajectory is assumed to be of shape [5,64]
     # Output trajectory will be of shape [5,16]
@@ -194,7 +194,9 @@ function condense_trajectory(trajectory)
     return condensed_trajectory
 end
 
-
+"""
+Condenses a batch
+"""
 function condense_batch(batch_trajectories)
     # Input batch_trajectories is assumed to be of shape [100, 5, 64]
     # Output will be of shape [100, 5, 16]
