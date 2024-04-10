@@ -9,7 +9,38 @@ by [Tyler Presser](http://tpresser570.github.io/), USC.
 ## Running Experiments
 
 ### Earth-Mars Transfer Data
-Use the Google Drive [LINK](https://drive.google.com/drive/folders/1jAYGXROnBbnWZAR7X-bephRyaON6s3xk?usp=sharing) to access the dataset used to compute the results shown in the paper. Download and extract the zip file. Ensure the path in your config file points to the data you want to use. The trajectory files, which are saved as pickle binary files, are automatically converted to images for the model to process using `datasets/unconditional_lambert.py`, which reads all the pickle files from the data folder and imports them to a pytorch datloader, which the model will access.
+Use the Google Drive [LINK](https://drive.google.com/drive/folders/1jAYGXROnBbnWZAR7X-bephRyaON6s3xk?usp=sharing) to access the dataset used to compute the results shown in the paper. Download and extract the zip file. Ensure the path in your config file points to the data you want to use. The trajectory files, which are saved as pickle binary files, are automatically converted to images for the model to process using `datasets/unconditional_lambert.py`, which reads all the pickle files from the data folder and imports them to a pytorch datloader, which the model will access. Your config file should specify what data you want to use and where it is from. 
+
+The dataset is structured as:
+
+```bash
+<extended_mars_transfers> # a folder containting all the data
+├── 8 # all trajectories of size 8
+├── 16 # all trajectories of size 16
+│   └──
+│      ├── csv #
+|           └── 
+|                |- sample_inital_conditions.csv # a dataframe of all inital conditions used to generate lambert solutions
+|                |- traj_names_df.csv # a dataframe of all trajectory .pkl file names
+|                |- traj_names_scaled_df.csv # a dataframe of all trajectory .pkl file names for scaled trajectories [0,1]
+│      ├── fea #
+|           └── 
+|                |- initial_conditions_mars_2d_km.fea # feather table of all inital conditions 
+│      ├── npy #
+|           └── 
+|                |- initial_conditions_mars_2d_km.npy # npy array of all inital conditions in km
+|                |- initial_conditions_mars_2d.npy # npy array of all intial conditions in m
+│      ├── pkl # a folder of all original trajectory pkl files
+│      ├── scaled_pkl # a folder of all original trajectory pkl files
+│      ├── ranges #
+|           └── 
+|                |- ranges.csv # a csv containing all the ranges used to scale the trajectories [0,1]
+├── 64 # all trajectories of size 64
+├── 1024 # all trajectories of size 1024
+
+
+```
+
 
 
 ### Project structure
