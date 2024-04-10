@@ -1,11 +1,17 @@
 # Diffusion Models for Generating Ballistic Spacecraft Transfers
 
 This repo is forked from the official implementation of NCSNV2 from the paper [Improved Techniques for Training Score-Based Generative Models](http://arxiv.org/abs/2006.09011). 
+The instructions are the same as those in the original implementation, with small tweaks to work with trajectory data. 
 
 by [Tyler Presser](http://tpresser570.github.io/), USC. 
 -----------------------------------------------------------------------------------------
 
 ## Running Experiments
+
+### Earth-Mars Transfer Data
+Use the Google Drive [LINK](https://drive.google.com/drive/folders/1jAYGXROnBbnWZAR7X-bephRyaON6s3xk?usp=sharing) to access the dataset used to compute the results shown in the paper. Download and extract the zip file. Ensure the path in your config file points to the data you want to use. The trajectory files, which are saved as pickle binary files, are automatically converted to images for the model to process using `datasets/unconditional_lambert.py`, which reads all the pickle files from the data folder and imports them to a pytorch datloader, which the model will access.
+
+
 ### Project structure
 
 `main.py` is the file that you should run for both training and sampling. Execute ```python main.py --help``` to get its usage description:
@@ -85,12 +91,6 @@ python main.py --fast_fid --config bedroom.yml -i bedroom
 ```
 
 You can find samples in `<exp>/fid_samples/bedroom`.
-
-## Pretrained Checkpoints
-
-Link: https://drive.google.com/drive/folders/1217uhIvLg9ZrYNKOR3XTRFSurt4miQrd?usp=sharing
-
-You can produce samples using it on all datasets we tested in the paper. It assumes the `--exp` argument is set to `exp`.
 
 ## References
 
