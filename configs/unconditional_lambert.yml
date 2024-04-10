@@ -29,7 +29,7 @@ test:
 
 data:
   dataset: "unconditional_lambert"
-  image_size: 1024
+  image_size: 64
   image_size_feats: 6
   channels: 1
   logit_transform: false
@@ -38,13 +38,13 @@ data:
   random_flip: false
   rescaled: false
   num_workers: 32
-  csv_file : '/Users/tylerpresser/Documents/GitHub/ScoreNet/earth_mars_2d/csv/sample_initial_conditions_scaled.csv'
+  csv_file : '/project/erwin_763/Tpresser/github/ScoreNet/extended_mars_transfers/64/csv/sample_initial_conditions_scaled.csv'
   root_dir : '/Users/tylerpresser/Documents/GitHub/ScoreNet/'
 
 
 model:
-  sigma_begin: 77
-  num_classes: 336
+  sigma_begin: 10
+  num_classes: 260
   ema: true
   ema_rate: 0.999
   spec_norm: false
@@ -61,5 +61,3 @@ optim:
   beta1: 0.9
   amsgrad: false
   eps: 0.00000001
-
-
