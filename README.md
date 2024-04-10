@@ -2,7 +2,7 @@
 
 This repo is forked from the official implementation of NCSNV2 from the paper [Improved Techniques for Training Score-Based Generative Models](http://arxiv.org/abs/2006.09011). 
 
-by [Yang Song](http://yang-song.github.io/) and [Stefano Ermon](https://cs.stanford.edu/~ermon/), Stanford AI Lab.
+by [Tyler Presser](http://tpresser570.github.io/), USC. 
 -----------------------------------------------------------------------------------------
 
 ## Running Experiments
